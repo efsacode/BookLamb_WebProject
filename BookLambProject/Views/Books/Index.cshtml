@@ -1,0 +1,46 @@
+﻿@model IEnumerable<BookLambProject.Models.Book>
+
+@{
+    ViewData["Title"] = "Book Lamb";
+}
+
+<h1>Welcome To Book Lamb</h1>
+
+<table class="table">
+    <tbody>
+        @{
+            int columnCount = 3;
+            var items = Model.ToList();
+
+            for (int i = 0; i < items.Count; i += columnCount)
+            {
+                <tr>
+                    @for (int j = 0; j < columnCount && (i + j) < items.Count; j++)
+                    {
+                        var item = items[i + j];
+                        <td>
+                            <div>
+                                <img src=../Images/@Html.DisplayFor(modelItem => item.ImagePath) style="width:210px;height:297px;">
+                            </div>
+                            <div>
+                                <strong>Title:</strong> @Html.DisplayFor(modelItem => item.Title)
+                            </div>
+                            <div>
+                                <strong>Author:</strong> @Html.DisplayFor(modelItem => item.Author)
+                            </div>
+                            <div>
+                                <strong>Price:</strong> @Html.DisplayFor(modelItem => item.Price)TL
+                            </div>
+
+
+                            <div>
+                                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                                <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-bookId="@item.Id">Add to Cart</a>
+                            </div>
+                        </td>
+                    }
+                </tr>
+            }
+        }
+    </tbody>
+</table>

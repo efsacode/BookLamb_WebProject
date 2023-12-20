@@ -20,6 +20,6 @@ namespace BookLambProject.Models
         [Column(TypeName = "decimal(8,2)")]
         public decimal Price { get; set; }
 
-       // public ICollection<ShoppingCart>? ShoppingCart { get; set; }
+        public ICollection<ShoppingCart>? ShoppingCart { get; set; }
     }
 }

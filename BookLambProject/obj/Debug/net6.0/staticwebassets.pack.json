@@ -5,6 +5,30 @@
       "PackagePath": "staticwebassets\\BookLambProject.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\dorduncuKanat.jpg",
+      "PackagePath": "staticwebassets\\Images\\dorduncuKanat.jpg"
+    },
+    {
+      "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\logo.png",
+      "PackagePath": "staticwebassets\\Images\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\name.png",
+      "PackagePath": "staticwebassets\\Images\\name.png"
+    },
+    {
+      "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\tehlikelerGezegeni.jpg",
+      "PackagePath": "staticwebassets\\Images\\tehlikelerGezegeni.jpg"
+    },
+    {
+      "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\the_lightning_thief.jpg",
+      "PackagePath": "staticwebassets\\Images\\the_lightning_thief.jpg"
+    },
+    {
+      "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\yirmibir.jpg",
+      "PackagePath": "staticwebassets\\Images\\yirmibir.jpg"
+    },
+    {
       "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

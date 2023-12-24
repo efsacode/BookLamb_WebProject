@@ -3,11 +3,39 @@
 @{
     ViewData["Title"] = "Book Lamb";
 }
+<style>
+    h1 {
+        text-align: center;
+        margin-bottom: 100px;
+        margin-top: 35px;
+        font-family: 'Inria Sans';
+    }
+
+    
+
+</style>
+
+
 
 <h1>Welcome To Book Lamb</h1>
 
+
+
+<style>
+    table {
+        margin-left: 150px;
+    }
+    tbody {
+        font-family: 'Inria Sans';
+
+    }
+</style>
+
 <table class="table">
+    
     <tbody>
+        
+        
         @{
             int columnCount = 3;
             var items = Model.ToList();
@@ -34,8 +62,8 @@
 
 
                             <div>
-                                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                                <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-bookId="@item.Id">Add to Cart</a>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                                <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-bookId="@item.Id" class="btn btn-primary" >Add to Cart</a>
                             </div>
                         </td>
                     }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookLambProject.Data;
 using BookLambProject.Models;
+using BookLambProject.Utilities;
 
 namespace BookLambProject.Controllers
 {
@@ -16,6 +17,7 @@ namespace BookLambProject.Controllers
 
         public BooksController(BookLambProjectContext context)
         {
+
             _context = context;
             context.Database.EnsureCreated();
 
@@ -83,9 +85,11 @@ namespace BookLambProject.Controllers
     }
 
         // GET: Books
+
         public async Task<IActionResult> Index()
         {
-              return _context.Book != null ? 
+            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
+            return _context.Book != null ? 
                           View(await _context.Book.ToListAsync()) :
                           Problem("Entity set 'BookLambProjectContext.Book'  is null.");
         }
@@ -93,6 +97,7 @@ namespace BookLambProject.Controllers
         // GET: Books/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
             if (id == null || _context.Book == null)
             {
                 return NotFound();
@@ -111,6 +116,7 @@ namespace BookLambProject.Controllers
         // GET: Books/Create
         public IActionResult Create()
         {
+            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
             return View();
         }
 
@@ -121,6 +127,7 @@ namespace BookLambProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,ImagePath,Author,Description,Publisher,Price")] Book book)
         {
+            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
             if (ModelState.IsValid)
             {
                 _context.Add(book);
@@ -133,6 +140,7 @@ namespace BookLambProject.Controllers
         // GET: Books/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
             if (id == null || _context.Book == null)
             {
                 return NotFound();
@@ -153,6 +161,7 @@ namespace BookLambProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,ImagePath,Author,Description,Publisher,Price")] Book book)
         {
+            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
             if (id != book.Id)
             {
                 return NotFound();
@@ -184,6 +193,7 @@ namespace BookLambProject.Controllers
         // GET: Books/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
             if (id == null || _context.Book == null)
             {
                 return NotFound();

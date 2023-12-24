@@ -7,102 +7,96 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookLambProject.Data;
 using BookLambProject.Models;
-using BookLambProject.Utilities;
 
 namespace BookLambProject.Controllers
 {
-    public class AdminController : Controller
+    public class UsersController : Controller
     {
         private readonly BookLambProjectContext _context;
 
-        public AdminController(BookLambProjectContext context)
+        public UsersController(BookLambProjectContext context)
         {
             _context = context;
         }
 
-        // GET: Admin
-
-        [Authentication]
+        // GET: Users
         public async Task<IActionResult> Index()
         {
             ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
-
-            return _context.Book != null ? 
-                          View(await _context.Book.ToListAsync()) :
-                          Problem("Entity set 'BookLambProjectContext.Book'  is null.");
+            return _context.User != null ? 
+                          View(await _context.User.ToListAsync()) :
+                          Problem("Entity set 'BookLambProjectContext.User'  is null.");
         }
 
-        // GET: Admin/Details/5
+        // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
-            if (id == null || _context.Book == null)
+            if (id == null || _context.User == null)
             {
                 return NotFound();
             }
 
-            var book = await _context.Book
+            var user = await _context.User
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (book == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(book);
+            return View(user);
         }
 
-        // GET: Admin/Create
+        // GET: Users/Create
         public IActionResult Create()
         {
             ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
             return View();
         }
 
-        // POST: Admin/Create
+        // POST: Users/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,ImagePath,Author,Description,Publisher,Price")] Book book)
-
+        public async Task<IActionResult> Create([Bind("Id,UserName,UserPassword")] User user)
         {
             ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
             if (ModelState.IsValid)
             {
-                _context.Add(book);
+                _context.Add(user);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index","Books");
             }
-            return View(book);
+            return View(user);
         }
 
-        // GET: Admin/Edit/5
+        // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
-            if (id == null || _context.Book == null)
+            if (id == null || _context.User == null)
             {
                 return NotFound();
             }
 
-            var book = await _context.Book.FindAsync(id);
-            if (book == null)
+            var user = await _context.User.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
-            return View(book);
+            return View(user);
         }
 
-        // POST: Admin/Edit/5
+        // POST: Users/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,ImagePath,Author,Description,Publisher,Price")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,UserName,UserPassword")] User user)
         {
             ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
-            if (id != book.Id)
+            if (id != user.Id)
             {
                 return NotFound();
             }
@@ -111,12 +105,12 @@ namespace BookLambProject.Controllers
             {
                 try
                 {
-                    _context.Update(book);
+                    _context.Update(user);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BookExists(book.Id))
+                    if (!UserExists(user.Id))
                     {
                         return NotFound();
                     }
@@ -127,50 +121,51 @@ namespace BookLambProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(book);
+            return View(user);
         }
 
-        // GET: Admin/Delete/5
+        // GET: Users/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
-            if (id == null || _context.Book == null)
+            if (id == null || _context.User == null)
             {
                 return NotFound();
             }
 
-            var book = await _context.Book
+            var user = await _context.User
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (book == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(book);
+            return View(user);
         }
 
-        // POST: Admin/Delete/5
+        // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Book == null)
+
+            if (_context.User == null)
             {
-                return Problem("Entity set 'BookLambProjectContext.Book'  is null.");
+                return Problem("Entity set 'BookLambProjectContext.User'  is null.");
             }
-            var book = await _context.Book.FindAsync(id);
-            if (book != null)
+            var user = await _context.User.FindAsync(id);
+            if (user != null)
             {
-                _context.Book.Remove(book);
+                _context.User.Remove(user);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BookExists(int id)
+        private bool UserExists(int id)
         {
-          return (_context.Book?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.User?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

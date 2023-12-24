@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\BookLambProject.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\bookwallp.jpg",
+      "PackagePath": "staticwebassets\\Images\\bookwallp.jpg"
+    },
+    {
       "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\dorduncuKanat.jpg",
       "PackagePath": "staticwebassets\\Images\\dorduncuKanat.jpg"
     },

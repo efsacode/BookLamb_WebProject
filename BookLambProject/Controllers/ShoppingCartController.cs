@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookLambProject.Data;
 using BookLambProject.Models;
+using BookLambProject.Utilities;
 
 namespace BookLambProject.Controllers
 {
@@ -19,8 +20,10 @@ namespace BookLambProject.Controllers
             _context = context;
         }
 
+        [Authentication]
         public IActionResult Index()
         {
+            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
             // Retrieve shopping cart items and display them
             var cartItems = _context.ShoppingCart.Include(item => item.Book).ToList();
 
@@ -29,6 +32,7 @@ namespace BookLambProject.Controllers
 
         public async Task<IActionResult> AddToCart(int bookId)
         {
+            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
             var book = await _context.Book.FindAsync(bookId);
 
             if (book != null)
@@ -64,6 +68,7 @@ namespace BookLambProject.Controllers
         // GET: ShoppingCart/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
             if (id == null || _context.ShoppingCart == null)
             {
                 return NotFound();
@@ -83,6 +88,7 @@ namespace BookLambProject.Controllers
         // GET: ShoppingCart/Create
         public IActionResult Create()
         {
+            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
             ViewData["BookId"] = new SelectList(_context.Book, "Id", "Id");
             return View();
         }
@@ -94,6 +100,7 @@ namespace BookLambProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,BookId,Quantity")] ShoppingCart shoppingCart)
         {
+            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
             if (ModelState.IsValid)
             {
                 _context.Add(shoppingCart);
@@ -107,6 +114,7 @@ namespace BookLambProject.Controllers
         // GET: ShoppingCart/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
             if (id == null || _context.ShoppingCart == null)
             {
                 return NotFound();
@@ -128,6 +136,7 @@ namespace BookLambProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,BookId,Quantity")] ShoppingCart shoppingCart)
         {
+            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
             if (id != shoppingCart.Id)
             {
                 return NotFound();
@@ -160,6 +169,7 @@ namespace BookLambProject.Controllers
         // GET: ShoppingCart/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
             if (id == null || _context.ShoppingCart == null)
             {
                 return NotFound();

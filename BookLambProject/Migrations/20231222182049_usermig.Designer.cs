@@ -4,6 +4,7 @@ using BookLambProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookLambProject.Migrations
 {
     [DbContext(typeof(BookLambProjectContext))]
-    partial class BookLambProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20231222182049_usermig")]
+    partial class usermig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,7 +106,7 @@ namespace BookLambProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("SUser");
                 });
 
             modelBuilder.Entity("BookLambProject.Models.ShoppingCart", b =>

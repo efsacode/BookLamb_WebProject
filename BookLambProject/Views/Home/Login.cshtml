@@ -1,0 +1,40 @@
+﻿@model BookLambProject.Models.User
+@{
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    .mycontainer {
+        margin-bottom: 10px;
+    }
+
+</style>
+
+
+<h1>Log in</h1>
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="col-md-4">
+    <div class="mycontainer">
+        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", id = "UserName", placeholder = "Email address", required = "required", autofocus = "autofocus" })
+    </div>
+    <div class="mycontainer">
+        @Html.TextBoxFor(m => m.UserPassword, new { @class = "form-control", type = "password", placeholder = "Password", required = "" })
+    </div>
+    <div class="mycontainer">
+        <input type="submit" value="Log in" class="btn btn-primary" />
+    </div>
+    </div>
+}
+<div>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Index">Back</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

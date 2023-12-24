@@ -17,5 +17,9 @@ namespace BookLambProject.Data
         public DbSet<BookLambProject.Models.Book> Book { get; set; } = default!;
 
         public DbSet<BookLambProject.Models.ShoppingCart>? ShoppingCart { get; set; }
+
+        public DbSet<BookLambProject.Models.User>? User { get; set; }
+
+        
     }
 }

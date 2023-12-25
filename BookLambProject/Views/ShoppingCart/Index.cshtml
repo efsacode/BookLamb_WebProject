@@ -3,14 +3,23 @@
 @{
     ViewData["Title"] = "Index";
 }
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 80px;
+        font-family: 'Inria Sans';
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.59);
+    }
 
-<h1>Index</h1>
+</style>
+<h1>🛒 Your Shopping Cart 🛒</h1>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Book.ImagePath)
+                
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Book.Title)

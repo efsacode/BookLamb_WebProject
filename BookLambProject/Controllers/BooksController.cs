@@ -27,7 +27,7 @@ namespace BookLambProject.Controllers
             }
 
             var books = new Book[]
-            {
+            { //Book seeding
             new Book
             {
                 Title = "Dördüncü Kanat",
@@ -72,6 +72,83 @@ namespace BookLambProject.Controllers
                 Publisher = "Doğan Egmont",
                 Price = 110.0m
             },
+            new Book
+            {
+                Title = "1984",
+                ReleaseDate = DateTime.Parse("2018-01-04"),
+                Genre = "Fiction",
+                ImagePath = "1984.jpg",
+                Author = "George Orwell",
+                Description = "One of Britain's most popular novels, George Orwell's Nineteen Eighty-Four is set in a society terrorised by a totalitarian ideology propagated by The Party. \r\n\r\nWinston Smith works for the Ministry of Truth in London, chief city of Airstrip One. Big Brother stares out from every poster, the Thought Police uncover every act of betrayal. When Winston finds love with Julia, he discovers that life does not have to be dull and deadening, and awakens to new possibilities. Despite the police helicopters that hover and circle overhead, Winston and Julia begin to question the Party; they are drawn towards conspiracy. Yet Big Brother will not tolerate dissent - even in the mind. For those with original thoughts they invented Room 101. . . ",
+                Publisher = "Penguin Books",
+                Price = 270.0m
+            },
+            new Book
+            {
+                Title = "Harry Potter and the Philosopher's Stone",
+                ReleaseDate = DateTime.Parse("2001-04-04"),
+                Genre = "Fiction",
+                ImagePath = "Sorcerers_stone.jpg",
+                Author = "J. K. Rowling",
+                Description = "Celebrate 20 years of Harry Potter magic with four special editions of Harry Potter and the Philosopher's Stone. Gryffindor, Slytherin, Hufflepuff, Ravenclaw ...Twenty years ago these magical words and many more flowed from a young writer's pen, an orphan called Harry Potter was freed from the cupboard under the stairs - and a global phenomenon started. Harry Potter and the Philosopher's Stone has been read and loved by every new generation since. To mark the 20th anniversary of first publication, Bloomsbury is publishing four House Editions of J.K. Rowling's modern classic. These stunning editions will each feature the individual house crest on the jacket and line illustrations exclusive to that house, by Kate Greenaway Medal winner Levi Pinfold. Exciting new extra content will include fact files and profiles of favourite characters, and each book will have sprayed edges in the house colours. Available for a limited period only, these highly collectable editions will be a must-have for all Harry Potter fans in 2017.",
+                Publisher = "Bloomsbury",
+                Price = 478.0m
+            },
+            new Book
+            {
+                Title = "It",
+                ReleaseDate = DateTime.Parse("2017-02-07"),
+                Genre = "Horror",
+                ImagePath = "it.jpg",
+                Author = "Stephen King",
+                Description = "To the children, the town was their whole world. To the adults, knowing better, Derry Maine was just their home town: familiar, well-ordered for the most part. A good place to live.It was the children who saw - and felt - what made Derry so horribly different. In the storm drains, in the sewers, IT lurked, taking on the shape of every nightmare, each one's deepest dread. Sometimes IT reached up, seizing, tearing, killing . . .",
+                Publisher = "Hodder & Stoughton Ltd",
+                Price = 335.0m
+            },
+            new Book
+            {
+                Title = "White Fang",
+                ReleaseDate = DateTime.Parse("2019-08-01"),
+                Genre = "Fiction",
+                ImagePath = "white_fang.png",
+                Author = "Jack London",
+                Description = "First serialized in Outing Magazine, worldwide known author Jack Londons second novel White Fang first published in 1906. The story takes place in Russia, America and Canada and it is about White Fangs journey to domestication. On the other hand this novel is a thematic mirror to Jack Londons most famous work, The Call of the Wild which is about a captured, domesticated dog embracing his wild ancestry to survive and thrive in the wild.",
+                Publisher = "Ren Kitap",
+                Price = 99.0m
+            },
+            new Book
+            {
+                Title = "The Alchemist",
+                ReleaseDate = DateTime.Parse("2015-05-11"),
+                Genre = "Clasic",
+                ImagePath = "the_alchemist.jpg",
+                Author = "Harper Collins Publishers",
+                Description = "Santiago, a young shepherd living in the hills of Andalucia, feels that there is more to life than his humble home and his flock. One day he finds the courage to follow his dreams into distant lands, each step galvanised by the knowledge that he is following the right path: his own. The people he meets along the way, the things he sees and the wisdom he learns are life-changing.",
+                Publisher = "Paulo Coelho",
+                Price = 120.0m
+            },
+            new Book
+            {
+                Title = "Twilight",
+                ReleaseDate = DateTime.Parse("2006-12-12"),
+                Genre = "Fiction",
+                ImagePath = "twilight.jpg",
+                Author = "Stephenie Meyer",
+                Description = "In this exquisite fantasy, Bella adores beautiful Edward, and he returns her love. But Edward must control the blood lust she arouses in him because--he's a vampire. This deeply romantic and extraordinarily suspenseful novel captures the struggle between defying instincts and satisfying desires.",
+                Publisher = "Megan Tingley Books",
+                Price = 138.0m
+            },
+            new Book
+            {
+                Title = "Hobbit",
+                ReleaseDate = DateTime.Parse("2013-7-1"),
+                Genre = "Fiction",
+                ImagePath = "hobbit.jpg",
+                Author = "J. R. R. Tolkien",
+                Description = "The first new illustrated edition of The Hobbit for more than 15 years contains 150 brand new colour illustrations. Artist Jemima Catlin's charming and lively interpretation brings Tolkien's beloved characters to life in a way that will entice and entertain a new generation of readers.Bilbo Baggins is a hobbit who enjoys a comfortable and quiet life. His contentment is disturbed one day when the wizard, Gandalf, and the dwarves arrive to take him away on an adventure.Smaug certainly looked fast asleep, when Bilbo peeped once more from the entrance. He was just about to step out on to the floor when he caught a sudden thin ray of red from under the drooping lid of Smaug's left eye. He was only pretending to sleep! He was watching the tunnel entrance!",
+                Publisher = "İthaki Yayınları",
+                Price = 110.0m
+            },
 
             };
 
@@ -88,7 +165,7 @@ namespace BookLambProject.Controllers
 
         public async Task<IActionResult> Index()
         {
-            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null;
+            ViewBag.IsUserAuthenticated = HttpContext.Session.GetString("UserName") != null; //ViewBag bool for detecting logged in or not
             return _context.Book != null ? 
                           View(await _context.Book.ToListAsync()) :
                           Problem("Entity set 'BookLambProjectContext.Book'  is null.");

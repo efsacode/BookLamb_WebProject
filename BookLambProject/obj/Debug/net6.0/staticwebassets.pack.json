@@ -5,12 +5,28 @@
       "PackagePath": "staticwebassets\\BookLambProject.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\1984.jpg",
+      "PackagePath": "staticwebassets\\Images\\1984.jpg"
+    },
+    {
+      "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\Sorcerers_stone.jpg",
+      "PackagePath": "staticwebassets\\Images\\Sorcerers_stone.jpg"
+    },
+    {
       "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\bookwallp.jpg",
       "PackagePath": "staticwebassets\\Images\\bookwallp.jpg"
     },
     {
       "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\dorduncuKanat.jpg",
       "PackagePath": "staticwebassets\\Images\\dorduncuKanat.jpg"
+    },
+    {
+      "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\hobbit.jpg",
+      "PackagePath": "staticwebassets\\Images\\hobbit.jpg"
+    },
+    {
+      "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\it.jpg",
+      "PackagePath": "staticwebassets\\Images\\it.jpg"
     },
     {
       "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\logo.png",
@@ -25,8 +41,20 @@
       "PackagePath": "staticwebassets\\Images\\tehlikelerGezegeni.jpg"
     },
     {
+      "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\the_alchemist.jpg",
+      "PackagePath": "staticwebassets\\Images\\the_alchemist.jpg"
+    },
+    {
       "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\the_lightning_thief.jpg",
       "PackagePath": "staticwebassets\\Images\\the_lightning_thief.jpg"
+    },
+    {
+      "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\twilight.jpg",
+      "PackagePath": "staticwebassets\\Images\\twilight.jpg"
+    },
+    {
+      "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\white_fang.png",
+      "PackagePath": "staticwebassets\\Images\\white_fang.png"
     },
     {
       "Id": "C:\\Users\\efsal\\Desktop\\Son-Booklamb\\BookLamb_WebProject\\BookLambProject\\wwwroot\\Images\\yirmibir.jpg",

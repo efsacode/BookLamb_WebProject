@@ -37,7 +37,7 @@ namespace BookLambProject.Controllers
 
             if (book != null)
             {
-                // Check if the item is already in the cart
+                // Checks if the item is already in the cart
                 var cartItem = _context.ShoppingCart.SingleOrDefault(
                     c => c.BookId == bookId);
 

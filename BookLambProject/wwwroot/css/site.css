@@ -29,3 +29,17 @@ body {
         background-color: mediumorchid;
         border-color: orchid;
     }
+
+.bookimg{
+    border:outset;
+    border-color:black;
+    
+}
+    .bookimg:hover {
+       
+        border:hidden;
+    }
+.detailsimg {
+    border: double;
+    margin-bottom:20%;
+}

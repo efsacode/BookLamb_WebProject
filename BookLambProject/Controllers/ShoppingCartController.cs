@@ -43,7 +43,7 @@ namespace BookLambProject.Controllers
 
                 if (cartItem == null)
                 {
-                    // If not, add it to the cart
+                    // If not adds it to the cart
                     cartItem = new ShoppingCart
                     {
                         Book = book,
